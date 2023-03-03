@@ -64,27 +64,27 @@ def tobs():
     temp_obs = list(np.ravel(results))
     return jsonify(temp_obs)
 
-start_date = dt.date(year=2014, month=5, day=24)
 
-@app.route("/api/v1.0/start")
-def start():
+@app.route("/api/v1.0/<start_date>")
+def start(start_date):
     session = Session(engine)
+    start_date = dt.datetime.strptime(start_date, "%Y%m%d")
     results = session.query(func.min(measurement.tobs), func.max(measurement.tobs),
         func.avg(measurement.tobs)).\
         filter(measurement.date >= start_date).all()
     session.close()
-    start_date = list(np.ravel(results))
-    return jsonify(start_date)
+    start_list = list(np.ravel(results))
+    return jsonify(start_list)
 
-second_start = dt.date(year=2014, month=1, day=1)
-end_date = dt.date(year=2016, month=12, day=30)
 
-@app.route("/api/v1.0/start/end")
-def start_end():
+@app.route("/api/v1.0/<second_start>/<end_date>")
+def start_end(second_start, end_date):
     session = Session(engine)
+    second_start = dt.datetime.strptime(second_start, "%Y%m%d")
+    end_date = dt.datetime.strptime(end_date, "%Y%m%d")
     results = session.query(func.min(measurement.tobs), func.max(measurement.tobs),
         func.avg(measurement.tobs)).\
-        filter(measurement.date >= second_start, measurement.date <= end_date).all()
+        filter(measurement.date <= end_date, measurement.date >= second_start).all()
     session.close()
     start_end_date = list(np.ravel(results))
     return jsonify(start_end_date)
