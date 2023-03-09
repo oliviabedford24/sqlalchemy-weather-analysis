@@ -1,13 +1,14 @@
 import numpy as np
-
+import os 
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 import datetime as dt
-
 from flask import Flask, jsonify
 
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
 Base = automap_base()
