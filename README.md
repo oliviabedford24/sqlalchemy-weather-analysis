@@ -1,4 +1,4 @@
-# sqlalchemy-challenge
+# sqlalchemy-weather-analysis
 
 This is the Module 10: SQL Alchemy challenge for the Rice University Data Visualization bootcamp. In this challenge, we used SQL Alchemy to analyze and visualize data from weather stations in Hawai'i. 
 
