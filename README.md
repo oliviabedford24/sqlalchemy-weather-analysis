@@ -6,6 +6,6 @@ In the "Resources" folder is contained all of the given csv and sqlite files con
 
 In the "SurfsUp" file are all of the code I personally wrote for this challenge. The "climate_starter" file contains the SQL Alchemy code where I sorted and analyzed the data, as well as two graphs displaying the data. The "app" file contains the Flask code I wrote to create a web app for queries about the weather in Hawai'i.
 
-The code contained in this repository is mine, and mine alone. I did not collaborate with anyone for this challenge, but did receive some help from my instructors and Rice University's team of tutors.
+The code contained in this repository is mine, and mine alone.
 
-Another day, another slay. :D
+Thank you!
